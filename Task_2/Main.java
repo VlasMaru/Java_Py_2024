@@ -73,19 +73,23 @@ class Main {
     public static int ex_3(int[] mas) {
         int[] temp_mas = {};
         int mas_l = mas.length;
-        int max_sum = Integer.MIN_VALUE;
+        int temp_summ = 0;
+        int max_summ = Integer.MIN_VALUE;
         for (int k = 0; k < mas_l; k++) {
-            int temp_sum = mas[k];
-            for (int i = k + 1; i < mas_l; i++) {
-                temp_sum = temp_sum + mas[i];
-                if (max_sum < temp_sum) {
-                    max_sum = temp_sum;
-                } else {
-                    break;
+
+
+            for (int step = 2; step <= mas_l; step++) {
+
+                temp_summ = mas[k];
+                for (int i = k + 1; i < step; i++) {
+                    temp_summ = temp_summ + mas[i];
                 }
+                if (max_summ < temp_summ) {max_summ = temp_summ;}
             }
         }
-        return max_sum;
+
+
+        return max_summ;
     }
 
 
