@@ -1,15 +1,12 @@
-import Figures.Pawn;
-
 import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+
 public class Main {
     public static void main(String[] args) {
 
         Board board = new Board();
         board.init();
-        board.setColorGame('w');
+        board.setCurrentColor('w');
 
         System.out.println();
 
@@ -22,9 +19,9 @@ public class Main {
             System.out.println();
 
             System.out.println("Управление:");
-            System.out.println("----row ol row1 col1: Ход фигуры из кретки (row, col) в (row1, col1)");
+            System.out.println("----row ol row1 col1: Ход фигуры из клетки (row, col) в (row1, col1)");
 
-            switch (board.getColorGame()){
+            switch (board.getCurrentColor()){
                 case 'w': System.out.println("Ход белых"); break;
                 case 'b': System.out.println("Ход черных"); break;
             }
@@ -50,12 +47,11 @@ public class Main {
                 col1 = Integer.parseInt(coords[3]);
             }
 
-            switch (board.getColorGame()){
-                case 'w': board.setColorGame('b');break;
-                case 'b': board.setColorGame('w');break;
+            switch (board.getCurrentColor()){
+                case 'w': board.setCurrentColor('b');break;
+                case 'b': board.setCurrentColor('w');break;
             }
         }
-        //test
 
     }
 }
